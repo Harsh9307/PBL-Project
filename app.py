@@ -9,11 +9,8 @@ app = Flask(__name__)
 
 # Add app routes
 @app.route('/')
-
-# Create server response
-def index():
-    return "Hi"
-
+def application():
+    return render_template('index.html')
 @app.route('/app')
 
 def application():
