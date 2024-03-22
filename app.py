@@ -1,22 +1,16 @@
+# Example web interface (using Flask)
+from flask import Flask, request, render_template
 
-from flask import Flask, render_template
-
-
-
-
-# Create flask app
 app = Flask(__name__)
 
-# Add app routes
 @app.route('/')
-def application():
+def index():
     return render_template('index.html')
-@app.route('/app')
 
-def application():
-    return render_template('layout.html')
+@app.route('/upload', methods=['POST'])
+def upload():
+    # Handle file upload and process image
+    return "Image uploaded and processed successfully!"
 
-
-
-if __name__ == "__main__":
-    app.run()
+if __name__ == '__main__':
+    app.run(debug=True)

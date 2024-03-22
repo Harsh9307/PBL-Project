@@ -1,7 +1,40 @@
-{% extends 'layout.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>License Plate Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    
+</head>
+<body>
+  
 
-{% block body %}
-  <div class="container is-fluid">
-    <h1>Body Content</h1>
-  </div>
-{% endblock %}
+    <h1>License Plate Detection System</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="image">Select Image:</label>
+        <input type="file" name="image" id="image" accept="image/*" required>
+        <button type="submit">Upload</button>
+    </form>
+    <div id="image-preview">
+      <img id="preview" src="#" alt="Preview Image" style="display: none;">
+    </div>
+  
+    <footer>
+      <p>Developed by Your Team Name &copy; 2024</p>
+    </footer>
+    <script>
+      function previewImage(event) {
+          var reader = new FileReader();
+          reader.onload = function() {
+              var preview = document.getElementById('preview');
+              preview.src = reader.result;
+              preview.style.display = 'block';
+          }
+          reader.readAsDataURL(event.target.files[0]);
+      }
+      document.getElementById('image').addEventListener('change', previewImage);
+  </script>
+  
+</body>
+</html>
