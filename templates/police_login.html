@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Police Login/Signup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='police_signup.css') }}">
+    <style>
+        /* Custom CSS for hiding the signup section initially */
+        #signup-section {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Police Login/Signup</h1>
+        </header>
+        
+        <section id="login-section">
+            <h2>Login with Google</h2>
+            
+            <!-- Option to show signup section -->
+            <p>If you are not registered, <a href="/police/signup" >click here</a> to sign up.</p>
+
+            <!-- Signup section (initially hidden) -->
+            <div id="signup-section">
+                <h2>Sign Up</h2>
+                <p>If you are not registered, please sign up below:</p>
+                <form action="/police/signup" method="post">
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" id="username" required>
+
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password" required>
+
+                    <button type="submit" class="login-button">Sign Up</button>
+                </form>
+            </div>
+        </section>
+
+        <footer>
+            <p>Developed by Your Team Name &copy; 2024</p>
+        </footer>
+    </div>
+
+    <script>
+        // Function to show the signup section
+        function showSignupSection() {
+            document.getElementById("signup-section").style.display = "block";
+        }
+    </script>
+</body>
+</html>
+    
