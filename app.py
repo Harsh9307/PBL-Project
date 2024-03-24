@@ -76,5 +76,17 @@ def upload():
     # Handle file upload and process image
     return "Image uploaded and processed successfully!"
 
+@app.route('/user/login', methods=['GET', 'POST'])
+def login1():
+    # Handle file upload and process image
+    return render_template("user_login.html")
+
+
+@app.route('/user/profile', methods=['GET'])
+def profile():
+    # Handle file upload and process image
+    return render_template("user_profile.html")
+
+
 if __name__ == '__main__':
     app.run(debug=True)

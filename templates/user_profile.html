@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Profile</h1>
+        <div>
+            <label for="pic">Profile Picture:</label>
+            <input type="file" id="pic" name="pic">
+        </div>
+        <div>
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone">
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+        </div>
+        <div>
+            <label for="address">Address:</label>
+            <textarea id="address" name="address"></textarea>
+        </div>
+        <div>
+            <label for="adhar">Adhar Number:</label>
+            <input type="text" id="adhar" name="adhar">
+        </div>
+        
+        <h2>Challan Details</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Challan No.</th>
+                    <th>Vehicle No.</th>
+                    <th>Offense Date</th>
+                    <th>Status</th>
+                    <th>Fee</th>
+                    <th>Offense Committed</th>
+                    <th>Evidence</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Populate this section dynamically using server-side data -->
+                <tr>
+                    <td>12345</td>
+                    <td>ABC1234</td>
+                    <td>2024-03-21</td>
+                    <td>Paid</td>
+                    <td>$50</td>
+                    <td>Speeding</td>
+                    <td><a href="#">View</a></td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
