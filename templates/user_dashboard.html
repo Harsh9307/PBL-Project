@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <!-- Add any additional stylesheets or scripts here -->
+</head>
+<body>
+    <h1>Welcome, User {{ user_id }}</h1>
+
+    <h2>Violation Summary</h2>
+    <p>Total Violations: {{ total_violations }}</p>
+    <p>Total Fines: {{ total_fines }}</p>
+
+    <h3>List of Violations</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Challan No.</th>
+                <th>Vehicle No.</th>
+                <th>Offense Date</th>
+                <th>Status</th>
+                <th>Fee</th>
+                <th>Offense Committed</th>
+                <th>Evidence</th>
+                <th>Payment Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for violation in violations %}
+            <tr>
+                <td>{{ violation.challan_no }}</td>
+                <td>{{ violation.vehicle_no }}</td>
+                <td>{{ violation.offense_date }}</td>
+                <td>{{ violation.status }}</td>
+                <td>{{ violation.fee }}</td>
+                <td>{{ violation.offense_committed }}</td>
+                <td><img src="{{ url_for('static', filename='evidence/' + violation.evidence) }}" alt="Evidence" style="max-width: 100px;"></td>
+                <td>
+                    {% if violation.status == 'Pending' %}
+                    <a href="/pay/{{ violation.challan_no }}">Pay Now</a>
+                    {% else %}
+                    Paid
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Add any additional content or scripts here -->
+</body>
+</html>
